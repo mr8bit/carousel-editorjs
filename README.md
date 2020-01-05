@@ -9,6 +9,7 @@ Carousel/Gallery Block for the [Editor.js](https://editorjs.io).
 ## Features
 
 - Uploading file from the device
+- Preload image
 
 **Note** This Tool requires server-side implementation for file uploading. See [backend response format](#server-format) for more details.
 
