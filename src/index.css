@@ -1,0 +1,126 @@
+.carousel-addImage {
+    height: 225px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.carousel-item--empty .image-tool__image-preloader{
+  display: none;
+}
+
+.carousel-item img {
+    margin-bottom: 15px;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 180px;
+    order: 1;
+}
+
+.carousel-inputUrl {
+    order: 0;
+    display: none;
+}
+
+.carousel-caption {
+    order: 3;
+}
+
+
+.carousel-block {
+    width: 50%;
+}
+
+.carousel-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.carousel-wrapper {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.carousel-item {
+    height: 235px;
+    padding: 5px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+
+.carousel-removeBtn {
+    position: absolute;
+    padding: 3px;
+    right: 10px;
+    top: 10px;
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    background-color: white;
+    color: #000;
+    transition: background 200ms;
+}
+
+.carousel-removeBtn:hover {
+    background: #eff2f5;
+}
+
+.image-tool {
+
+  &__image {
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    &-picture {
+      max-width: 100%;
+      vertical-align: bottom;
+      display: block;
+    }
+
+    &-preloader {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-size: cover;
+      margin: auto;
+      position: relative;
+      background-color: #cdd1e0;
+      background-position: center center;
+
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid #cdd1e0;
+        border-top-color: #388ae5;
+        left: 50%;
+        top: 50%;
+        margin-top: -30px;
+        margin-left: -30px;
+        animation: image-preloader-spin 2s infinite linear;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
