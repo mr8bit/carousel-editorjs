@@ -39,9 +39,9 @@ module.exports = {
     ]
   },
   output: {
-    path: "/home/mr9bit/work/lambda-react-redux/src/media/",
+    path: path.join(__dirname, '/dist'),
     publicPath: '/',
-    filename: 'SimpleCarousel.js',
+    filename: 'bundle.js',
     library: 'SimpleCarousel',
     libraryTarget: 'umd',
     libraryExport: 'default'
