@@ -1,4 +1,4 @@
-.carousel-addImage {
+.cdxcarousel-addImage {
     height: 225px;
     display: flex;
     justify-content: center;
@@ -9,11 +9,11 @@
     margin-top: 5px;
 }
 
-.carousel-item--empty .image-tool__image-preloader{
+.cdxcarousel-item--empty .image-tool__image-preloader{
   display: none;
 }
 
-.carousel-item img {
+.cdxcarousel-item img {
     margin-bottom: 15px;
     display: block;
     object-fit: cover;
@@ -22,21 +22,21 @@
     order: 1;
 }
 
-.carousel-inputUrl {
+.cdxcarousel-inputUrl {
     order: 0;
     display: none;
 }
 
-.carousel-caption {
+.cdxcarousel-caption {
     order: 3;
 }
 
 
-.carousel-block {
+.cdxcarousel-block {
     width: 50%;
 }
 
-.carousel-list {
+.cdxcarousel-list {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -44,12 +44,12 @@
     align-items: flex-start;
 }
 
-.carousel-wrapper {
+.cdxcarousel-wrapper {
     margin-top: 10px;
     margin-bottom: 15px;
 }
 
-.carousel-item {
+.cdxcarousel-item {
     height: 235px;
     padding: 5px;
     display: flex;
@@ -58,7 +58,7 @@
 }
 
 
-.carousel-removeBtn {
+.cdxcarousel-removeBtn {
     position: absolute;
     padding: 3px;
     right: 10px;
@@ -78,7 +78,7 @@
     transition: background 200ms;
 }
 
-.carousel-removeBtn:hover {
+.cdxcarousel-removeBtn:hover {
     background: #eff2f5;
 }
 
