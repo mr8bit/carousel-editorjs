@@ -20,6 +20,11 @@
     "name": "CodeX",
     "email": "team@ifmo.su"
   },
+  "eslintConfig": {
+    "globals": {
+      "window": true
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/plugin-transform-runtime": "^7.2.0",

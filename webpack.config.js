@@ -10,8 +10,8 @@ module.exports = {
           {
             loader: 'babel-loader',
             query: {
-              presets: [ '@babel/preset-env' ]
-            }
+              presets: [ '@babel/preset-env' ],
+            },
           },
           'eslint-loader'
         ]
@@ -42,7 +42,7 @@ module.exports = {
     path: path.join(__dirname, '/dist'),
     publicPath: '/',
     filename: 'bundle.js',
-    library: 'SimpleCarousel',
+    library: 'Carousel',
     libraryTarget: 'umd',
     libraryExport: 'default'
   }

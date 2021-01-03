@@ -1,7 +1,7 @@
-import css from './index.css';
 // eslint-disable-next-line require-jsdoc
 import Uploader from './uploader';
 import buttonIcon from './svg/button-icon.svg';
+require('./index.css').toString();
 
 // eslint-disable-next-line require-jsdoc
 export default class SimpleCarousel {
@@ -20,7 +20,7 @@ export default class SimpleCarousel {
       additionalRequestHeaders: config.additionalRequestHeaders || {},
       field: config.field || 'image',
       types: config.types || 'image/*',
-      captionPlaceholder: config.captionPlaceholder || 'Caption',
+      captionPlaceholder: this.api.i18n.t('Caption'),
       buttonContent: config.buttonContent || '',
       uploader: config.uploader || undefined
     };
@@ -69,8 +69,8 @@ export default class SimpleCarousel {
    */
   static get toolbox() {
     return {
-      title: 'SimpleCarousel',
-      icon: '<svg width="17" height="15" viewBox="0 0 336 276" xmlns="http://www.w3.org/2000/svg"><path d="M291 150V79c0-19-15-34-34-34H79c-19 0-34 15-34 34v42l67-44 81 72 56-29 42 30zm0 52l-43-30-56 30-81-67-66 39v23c0 19 15 34 34 34h178c17 0 31-13 34-29zM79 0h178c44 0 79 35 79 79v118c0 44-35 79-79 79H79c-44 0-79-35-79-79V79C0 35 35 0 79 0z"/></svg>'
+      title: 'Carousel',
+      icon: '<svg width="38" height="18" viewBox="0 0 38 18" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="10" y="0" width="18" height="18"><path fill-rule="evenodd" clip-rule="evenodd" d="M28 16V2C28 0.9 27.1 0 26 0H12C10.9 0 10 0.9 10 2V16C10 17.1 10.9 18 12 18H26C27.1 18 28 17.1 28 16V16ZM15.5 10.5L18 13.51L21.5 9L26 15H12L15.5 10.5V10.5Z" fill="white"/></mask><g mask="url(#mask0)"><rect x="10" width="18" height="18" fill="#707684"/></g><mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="3" width="7" height="12"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 13.59L2.67341 9L7 4.41L5.66802 3L0 9L5.66802 15L7 13.59Z" fill="white"/></mask><g mask="url(#mask1)"><rect y="3" width="7.55735" height="12" fill="#707684"/></g><mask id="mask2" mask-type="alpha" maskUnits="userSpaceOnUse" x="31" y="3" width="7" height="12"><path fill-rule="evenodd" clip-rule="evenodd" d="M31 13.59L35.3266 9L31 4.41L32.332 3L38 9L32.332 15L31 13.59Z" fill="white"/></mask><g mask="url(#mask2)"><rect x="30.4426" y="2.25" width="7.55735" height="13" fill="#707684"/></g></svg>'
     };
   }
 
@@ -232,7 +232,7 @@ export default class SimpleCarousel {
     console.log('Gallery : uploading failed because of', errorText);
 
     this.api.notifier.show({
-      message: 'Can not upload an image, try another',
+      message: this.api.i18n.t('Can not upload an image, try another'),
       style: 'error'
     });
   }
@@ -251,6 +251,7 @@ export default class SimpleCarousel {
     this.uploader.uploadSelectedFile({
       onPreview: (src) => {
         const newItem = this.creteNewItem('', '');
+
         newItem.firstChild.lastChild.style.backgroundImage = `url(${src})`;
         console.log('preload', newItem.firstChild.lastChild);
         this.list.insertBefore(newItem, this.addButton);
