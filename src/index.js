@@ -14,6 +14,8 @@ export default class SimpleCarousel {
     this.api = api;
     this.data = data;
     this.IconClose = '<svg class="icon icon--cross" width="12px" height="12px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cross"></use></svg>';
+    this.IconLeft = '<svg class="icon " viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M351,9a15,15 0 01 19,0l29,29a15,15 0 01 0,19l-199,199l199,199a15,15 0 01 0,19l-29,29a15,15 0 01-19,0l-236-235a16,16 0 01 0-24z" /></svg>';
+    this.IconRight = '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M312,256l-199-199a15,15 0 01 0-19l29-29a15,15 0 01 19,0l236,235a16,16 0 01 0,24l-236,235a15,15 0 01-19,0l-29-29a15,15 0 01 0-19z" /></svg>';
     this.config = {
       endpoints: config.endpoints || '',
       additionalRequestData: config.additionalRequestData || {},
@@ -53,6 +55,8 @@ export default class SimpleCarousel {
       block: 'cdxcarousel-block',
       item: 'cdxcarousel-item',
       removeBtn: 'cdxcarousel-removeBtn',
+      leftBtn: 'cdxcarousel-leftBtn',
+      rightBtn: 'cdxcarousel-rightBtn',
       inputUrl: 'cdxcarousel-inputUrl',
       caption: 'cdxcarousel-caption',
       list: 'cdxcarousel-list',
@@ -149,10 +153,30 @@ export default class SimpleCarousel {
     const block = make('div', [ this.CSS.block ]);
     const item = make('div', [ this.CSS.item ]);
     const removeBtn = make('div', [ this.CSS.removeBtn ]);
+    const leftBtn = make('div', [ this.CSS.leftBtn ]);
+    const rightBtn = make('div', [ this.CSS.rightBtn ]);
     const imageUrl = make('input', [ this.CSS.inputUrl ]);
     const imagePreloader = make('div', [ this.CSS.imagePreloader ]);
 
     imageUrl.value = url;
+    leftBtn.innerHTML = this.IconLeft;
+    leftBtn.style = 'padding: 8px;';
+    leftBtn.addEventListener('click', () => {
+      var index = Array.from(block.parentNode.children).indexOf(block);
+
+      if(index != 0) {
+        block.parentNode.insertBefore(block, block.parentNode.children[index-1]);
+      }
+    });
+    rightBtn.innerHTML = this.IconRight;
+    rightBtn.style = 'padding: 8px;';
+    rightBtn.addEventListener('click', () => {
+      var index = Array.from(block.parentNode.children).indexOf(block);
+
+      if(index != block.parentNode.children.length-2) {
+        block.parentNode.insertBefore(block, block.parentNode.children[index+2]);
+      }
+    });
     removeBtn.innerHTML = this.IconClose;
     removeBtn.addEventListener('click', () => {
       block.remove();
@@ -161,6 +185,8 @@ export default class SimpleCarousel {
 
     item.appendChild(imageUrl);
     item.appendChild(removeBtn);
+    item.appendChild(leftBtn);
+    item.appendChild(rightBtn);
     block.appendChild(item);
     /*
      * If data already yet
