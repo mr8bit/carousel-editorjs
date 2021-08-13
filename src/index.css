@@ -82,6 +82,47 @@
     background: #eff2f5;
 }
 
+.cdxcarousel-leftBtn {
+  position: absolute;
+  padding: 3px;
+  right: 88px;
+  top: 10px;
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background-color: white;
+  color: #000;
+  transition: background 200ms;
+}
+
+.cdxcarousel-rightBtn {
+  position: absolute;
+  padding: 3px;
+  right: 49px;
+  top: 10px;
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background-color: white;
+  color: #000;
+  transition: background 200ms;
+}
+
+
 .image-tool {
 
   &__image {
